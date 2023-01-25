@@ -1,0 +1,8 @@
+# Ignore all executables
+*.o
+*.ko
+*.cmd
+*.mod.c
+*.mod.o
+*.symvers
+*.order
