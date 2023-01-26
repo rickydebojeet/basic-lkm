@@ -77,3 +77,11 @@ sudo dmesg
     ```
     The module walks through the page tables to find the physical address of the virtual address if found prints it out otherwise prints that the address is not mapped.
 
+5. [Size of VAS & PAS](./size/lkm5.c): Prints out the size of virtual address space and physical address space in Kilo Bytes (KB). Output-
+    ```console
+    [ 4084.542246] Size of VAS & PAS LKM    Pid: 48677
+    [ 4084.542250] Task: htop
+    [ 4084.542252] rss side: 5724 KiB       vm size: 11908 KiB
+    [ 4087.749883] lkm unloaded
+    ```
+    The Virtual Size is larger than resident set size, the main reason for this is that linux uses lazy loading and maps memory only when there is a demand for it. If for a process we are using `malloc` to allocate memory, we will notice that vm size will increase but the rss size will not increase. No untill the allocated memory is accessed, once it is accessed it will be mapped to physical address and the rss sise will increase.
