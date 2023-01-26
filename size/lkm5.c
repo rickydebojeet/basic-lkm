@@ -13,7 +13,7 @@
 #include <linux/mm.h>
 
 /* Meta Information */
-MODULE_DESCRIPTION("Running & Runnable processes kernel module");
+MODULE_DESCRIPTION("VAS & PAS Size LKM");
 MODULE_AUTHOR("Debojeet Das");
 MODULE_LICENSE("GPL");
 
