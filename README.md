@@ -28,9 +28,19 @@ sudo dmesg
 
 ## Kernel Modules
 
-- [Hello Program](./hello/mymodule.c): Prints hello world when installed and bye when removed.
+0. [Hello Linux Kernel Module (LKM)](./hello/mymodule.c): Prints hello world when installed and bye when removed.
     Outputs-
     ```console 
     [197612.209917] Hello World from a module
     [197617.471480] Bye from a module
     ```
+
+1. [List Running/Runnable Process LKM](./running/lkm1.c): Lists all processes either in running or runnable state. Outputs-
+    ```console
+    [199171.196640] print running process kernel module loaded
+    [199171.196642] PID     PROC
+    [199171.196642] ---------------
+    [199171.196706] 349110  insmod
+    [199174.954766] print running process kernel module unloaded
+    ```
+    The output might change depending on number of processes that were in running/runnable state when the insmod was running. To check if the module is correctly working. We can start a CPU intensive process, and check if the process name is coming in `dmesg` or not.
