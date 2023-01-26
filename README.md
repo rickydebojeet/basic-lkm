@@ -44,3 +44,11 @@ sudo dmesg
     [199174.954766] print running process kernel module unloaded
     ```
     The output might change depending on number of processes that were in running/runnable state when the insmod was running. To check if the module is correctly working. We can start a CPU intensive process, and check if the process name is coming in `dmesg` or not.
+
+2. [Largest Heap meory usage LKM](./heap/lkm2.c): Prints the process that is using the largest heap memory. Outputs-
+    ```console
+    [200316.613901] largest heap memory lkm loaded
+    [200316.613966] PID: 2221 has max heap usage with: 153395200
+    [200322.950288] largest heap memory lkm unloaded
+    ```
+    The largest value of the heap memory usage was found out by traversing through all processes and comparing their heap memory usage. Heap memory usage was found out by `mm->brk - mm->start_brk` where `mm` is the `mm_struct` of the process.
