@@ -61,3 +61,19 @@ sudo dmesg
     ```
     The lkm prints `task->stack` where `task` is the `task_struct` of the process with pid 1. As we can see in the output the address starts with `0xffffb` which resides in the kernel address space and represent the kernel stack of the process.
 
+4. [Virtual Address Checker LKM](./mapper/lkm4.c): Checks if an address is mapped to process. If mapped prints out the physical address coressponding to it.
+    ```console
+    [203901.641433] LKM loaded      Pid: 360249     Address: 7fff5f610000
+    [203901.641438] Task: htop
+    [203901.641439] Page Global Directory: ffff8df79503e7f8
+    [203901.641440] Address of Page 4th Directory: ffff8df79503e7f8
+    [203901.641440] Address of Page Upper Directory: ffff8df79a2e7fe8
+    [203901.641441] Address of Page Middle Directory: ffff8df93f8b17d8
+    [203901.641442] Address of Page Table Entry: ffff8df7cde33080
+    [203901.641442] The address 7fff5f610000 is valid
+    [203901.641443] Page Frame Number: 12c603
+    [203901.641443] Physical Address: 12c603000
+    [203904.882719] lkm unloaded
+    ```
+    The module walks through the page tables to find the physical address of the virtual address if found prints it out otherwise prints that the address is not mapped.
+
