@@ -7,3 +7,6 @@
 *.mod.o
 *.symvers
 *.order
+
+# VS Code Config
+.vscode/
