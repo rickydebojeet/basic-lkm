@@ -55,9 +55,9 @@ sudo dmesg
 
 3. [Kernel Stack Pointer LKM](./ksp/lkm3.c): Prints the kernel stack pointer of the task with pid 1. Outputs-
     ```console
-    [58383.641238] stack pointer lkm loaded
-    [58383.641241] PID: 1 has kernel stack base at ffffaa950006c000 and stack pointer at ffffaa950006fc00
-    [58388.272542] stack pointer lkm unloaded
+    [310843.064178] stack pointer lkm loaded
+    [310843.064182] PID: 1 has kernel stack at ffffaa950006fbe8
+    [310848.087138] stack pointer lkm unloaded
     ```
     The lkm prints `task->stack` where `task` is the `task_struct` of the process with pid 1. As we can see in the output the address starts with `0xffffb` which resides in the kernel address space and represent the kernel stack of the process.
 

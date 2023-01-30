@@ -23,7 +23,7 @@ static int __init print_ksp(void)
 {
     printk("stack pointer lkm loaded\n");
     task = get_pid_task(find_vpid(1), PIDTYPE_PID);
-    printk("PID: 1 has kernel stack base at %lx and stack pointer at %lx\n", (unsigned long)task->stack, (unsigned long)task->thread.sp);
+    printk("PID: 1 has kernel stack at %lx\n", (unsigned long)task->thread.sp);
     return 0;
 }
 
